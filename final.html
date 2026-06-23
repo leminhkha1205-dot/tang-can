@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lịch tập tối ưu cho ectomorph có kinh nghiệm</title>
+<style>
+:root{--bg:#0f1115;--card:#1a1f27;--card-2:#222833;--text:#f3f4f6;--muted:#a7afbb;--line:#2f3642;--accent:#d29a5a;--blue:#4a8fd8;--green:#2f8c68;--shadow:0 18px 40px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(210,154,90,.16),transparent 28%),radial-gradient(circle at top right,rgba(74,143,216,.1),transparent 24%),linear-gradient(180deg,#12151a 0%,#0b0d11 100%);line-height:1.55}
+.page{max-width:780px;margin:0 auto;padding:14px 14px 40px}.hero{background:linear-gradient(145deg,rgba(34,40,51,.96),rgba(20,24,31,.96));border:1px solid var(--line);border-radius:26px;padding:22px 18px;box-shadow:var(--shadow)}
+.badge{display:inline-flex;padding:7px 12px;border-radius:999px;background:rgba(210,154,90,.16);color:#f1c28e;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}h1{margin:14px 0 10px;font-size:34px;line-height:1.04;letter-spacing:-.04em}.hero p{margin:0;color:var(--muted);font-size:15px}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.stat{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;padding:12px}.stat small{display:block;color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase}.stat strong{display:block;margin-top:4px;font-size:22px;color:#fff}.goal-box{margin-top:14px;background:linear-gradient(145deg,rgba(210,154,90,.12),rgba(143,92,39,.08));border:1px solid rgba(210,154,90,.28);border-radius:18px;padding:14px;color:var(--muted);font-size:14px}.goal-box b{color:#f1c28e}.nav{position:sticky;top:0;z-index:8;display:flex;gap:10px;overflow:auto;white-space:nowrap;padding:12px 2px 10px;margin:10px 0 14px;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{flex:0 0 auto;text-decoration:none;color:#f3f4f6;background:#1d232c;border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-size:14px;font-weight:800;box-shadow:0 8px 18px rgba(0,0,0,.18)}.day{background:linear-gradient(145deg,rgba(26,31,39,.98),rgba(19,23,30,.98));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:16px;margin:14px 0;scroll-margin-top:72px}.day-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.day-pill{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(210,154,90,.14);color:#f1c28e;font-size:12px;font-weight:900;text-transform:uppercase}h2{margin:10px 0 6px;font-size:24px;line-height:1.15;letter-spacing:-.03em}.day-sub{margin:0;color:var(--muted);font-size:14px}.back-top{width:36px;height:36px;display:grid;place-items:center;border-radius:999px;text-decoration:none;background:#202734;color:#fff;border:1px solid var(--line)}.coach-note{margin:12px 0;padding:12px 13px;border-radius:16px;background:rgba(210,154,90,.08);border:1px solid rgba(210,154,90,.18);color:#dfc4a4;font-size:13px}.panel{background:#171c24;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:12px}.panel summary{list-style:none;cursor:pointer;padding:14px 15px;font-size:16px;font-weight:900;color:#fff;background:rgba(255,255,255,.02)}.panel summary::-webkit-details-marker{display:none}.stack{padding:12px;display:grid;gap:12px}.item{background:linear-gradient(145deg,#1d232c,#181d25);border:1px solid var(--line);border-radius:18px;padding:14px}.item-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.item h4{margin:0 0 4px;font-size:16px;line-height:1.25}.item p{margin:0;color:var(--muted);font-size:13px}.tag{flex:0 0 auto;display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:rgba(74,143,216,.14);color:#89b7ea;font-size:11px;font-weight:900}.meta{margin-top:10px;color:#dfe3e8;font-size:13px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{text-decoration:none;border-radius:999px;padding:9px 12px;font-size:12px;font-weight:900}.video{background:rgba(74,143,216,.15);color:#9cc0ea;border:1px solid rgba(74,143,216,.28)}.image{background:rgba(47,140,104,.14);color:#8fd1b3;border:1px solid rgba(47,140,104,.28)}.meal-item p{margin-top:8px;color:#e8eaee}.meal-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.milk-tag{flex:0 0 auto;display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:rgba(210,154,90,.12);color:#f1c28e;font-size:11px;font-weight:900}.footer-note{margin-top:18px;padding:16px;border-radius:18px;background:linear-gradient(145deg,rgba(210,154,90,.08),rgba(0,0,0,.08));border:1px solid rgba(210,154,90,.18);color:var(--muted);font-size:14px}.footer-note b{color:#fff}@media(min-width:700px){.page{max-width:900px}}
+</style>
+</head>
+<body>
+<main class="page" id="top">
+  <section class="hero">
+    <span class="badge">Advanced ectomorph plan</span>
+    <h1>Lịch tập tối ưu cho tăng cân & tăng cơ</h1>
+    <p>Bản đã rà soát lại cho người có kinh nghiệm tập gym, tạng khó tăng cân, tập tại nhà với ghế tập + tạ đơn.</p>
+    <div class="hero-stats">
+      <div class="stat"><small>Hiện tại</small><strong>54kg</strong></div>
+      <div class="stat"><small>Mục tiêu</small><strong>58–60kg</strong></div>
+      <div class="stat"><small>Chu kỳ</small><strong>12 tuần</strong></div>
+    </div>
+    <div class="goal-box">
+      <b>Điểm chỉnh chính:</b> giữ 4 buổi nặng/tuần, Thứ 7 là buổi phụ tùy hồi phục, tăng bài lưng/vai sau, tăng bài đơn chân để phù hợp tạ đơn tại nhà.
+    </div>
+  </section>
+  <nav class="nav"><a href="#day0">Thứ 2</a><a href="#day1">Thứ 3</a><a href="#day2">Thứ 4</a><a href="#day3">Thứ 5</a><a href="#day4">Thứ 6</a><a href="#day5">Thứ 7</a><a href="#day6">Chủ nhật</a></nav>
+  
+    <section class="day" id="day0">
+      <div class="day-header">
+        <div><span class="day-pill">Thứ 2</span><h2>Upper A - Sức mạnh thân trên</h2><p class="day-sub">Ngực, lưng, vai, tay · 3 hộp sữa hạt cao đạm</p></div>
+        <a class="back-top" href="#top">↑</a>
+      </div>
+      <div class="coach-note">Buổi nặng chính. Ưu tiên tăng tạ/tăng rep ở các bài đẩy ngực và kéo lưng.</div>
+      <details class="panel" open><summary>Lịch tập tối ưu</summary><div class="stack"><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Bench Press trên ghế</h4><p>Bài chính. Hạ tạ 2-3 giây, đẩy mạnh lên. Còn dư 1-2 reps.</p></div><span class="tag">Ngực</span></div>
+              <div class="meta">Set x Rep: <b>4 x 6-10</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Bench+Press+tr%C3%AAn+gh%E1%BA%BF+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Bench+Press+tr%C3%AAn+gh%E1%BA%BF+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Chest-supported Dumbbell Row trên ghế dốc</h4><p>Tựa ngực vào ghế để hạn chế gian lận, kéo khuỷu tay về sau.</p></div><span class="tag">Lưng</span></div>
+              <div class="meta">Set x Rep: <b>4 x 8-10</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Chest-supported+Dumbbell+Row+tr%C3%AAn+gh%E1%BA%BF+d%E1%BB%91c+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Chest-supported+Dumbbell+Row+tr%C3%AAn+gh%E1%BA%BF+d%E1%BB%91c+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Seated Dumbbell Shoulder Press</h4><p>Ngồi chắc, siết bụng, không ưỡn lưng quá mức.</p></div><span class="tag">Vai</span></div>
+              <div class="meta">Set x Rep: <b>3 x 6-10</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Seated+Dumbbell+Shoulder+Press+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Seated+Dumbbell+Shoulder+Press+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>One-arm Dumbbell Row chống tay lên ghế</h4><p>Kéo khuỷu sát thân, giữ 1 giây ở điểm co lưng.</p></div><span class="tag">Lưng</span></div>
+              <div class="meta">Set x Rep: <b>3 x 8-12 mỗi bên</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=One-arm+Dumbbell+Row+ch%E1%BB%91ng+tay+l%C3%AAn+gh%E1%BA%BF+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=One-arm+Dumbbell+Row+ch%E1%BB%91ng+tay+l%C3%AAn+gh%E1%BA%BF+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Incline Dumbbell Press nhẹ hơn</h4><p>Dùng tạ nhẹ hơn bài đầu, tập kiểm soát.</p></div><span class="tag">Ngực trên</span></div>
+              <div class="meta">Set x Rep: <b>3 x 8-12</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Incline+Dumbbell+Press+nh%E1%BA%B9+h%C6%A1n+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Incline+Dumbbell+Press+nh%E1%BA%B9+h%C6%A1n+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Lateral Raise</h4><p>Không vung người, ưu tiên cảm nhận vai.</p></div><span class="tag">Vai giữa</span></div>
+              <div class="meta">Set x Rep: <b>3 x 12-20</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Lateral+Raise+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Lateral+Raise+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Curl + Overhead Triceps Extension</h4><p>Superset để tiết kiệm thời gian, không cần quá nặng.</p></div><span class="tag">Tay</span></div>
+              <div class="meta">Set x Rep: <b>2-3 x 10-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Curl+%2B+Overhead+Triceps+Extension+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Curl+%2B+Overhead+Triceps+Extension+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div></div></details>
+      <details class="panel" open><summary>Ăn uống trong ngày</summary><div class="stack"><div class="item meal-item">
+              <div class="meal-top"><h4>Sáng</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Bánh mì 2 trứng hoặc cơm + 2 trứng + thịt</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trưa</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>2-3 chén cơm + 150-200g gà/cá/thịt + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Xế / trước tập</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Bánh mì trứng hoặc khoai lang + chuối</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Tối</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>2-3 chén cơm + thịt/cá/trứng/đậu hũ + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trước ngủ</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Không ăn quá no</p>
+            </div></div></details>
+    </section>
+    
+    <section class="day" id="day1">
+      <div class="day-header">
+        <div><span class="day-pill">Thứ 3</span><h2>Lower A - Chân/mông nặng</h2><p class="day-sub">Đùi trước, đùi sau, mông, bụng · 3 hộp sữa hạt cao đạm</p></div>
+        <a class="back-top" href="#top">↑</a>
+      </div>
+      <div class="coach-note">Ngày tập chân chính. Không cắt tinh bột trong ngày này.</div>
+      <details class="panel" open><summary>Lịch tập tối ưu</summary><div class="stack"><div class="item">
+              <div class="item-head"><div><h4>Goblet Squat hoặc Dumbbell Front Squat</h4><p>Giữ ngực mở, xuống sâu trong khả năng, gối đi theo mũi chân.</p></div><span class="tag">Đùi/mông</span></div>
+              <div class="meta">Set x Rep: <b>4 x 8-12</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Goblet+Squat+ho%E1%BA%B7c+Dumbbell+Front+Squat+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Goblet+Squat+ho%E1%BA%B7c+Dumbbell+Front+Squat+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Romanian Deadlift</h4><p>Đẩy hông ra sau, lưng trung lập, cảm nhận căng đùi sau.</p></div><span class="tag">Đùi sau/mông</span></div>
+              <div class="meta">Set x Rep: <b>4 x 8-10</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Romanian+Deadlift+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Romanian+Deadlift+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Bulgarian Split Squat với ghế</h4><p>Bài rất hiệu quả với tạ đơn. Hạ chậm, không bật người.</p></div><span class="tag">Chân/mông</span></div>
+              <div class="meta">Set x Rep: <b>3 x 8-10 mỗi bên</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Bulgarian+Split+Squat+v%E1%BB%9Bi+gh%E1%BA%BF+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Bulgarian+Split+Squat+v%E1%BB%9Bi+gh%E1%BA%BF+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Hip Thrust tựa ghế</h4><p>Tăng tạ dần, siết mông 1 giây ở đỉnh.</p></div><span class="tag">Mông</span></div>
+              <div class="meta">Set x Rep: <b>4 x 8-12</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Hip+Thrust+t%E1%BB%B1a+gh%E1%BA%BF+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Hip+Thrust+t%E1%BB%B1a+gh%E1%BA%BF+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Standing Dumbbell Calf Raise</h4><p>Nhón cao hết biên độ, hạ chậm.</p></div><span class="tag">Bắp chân</span></div>
+              <div class="meta">Set x Rep: <b>4 x 12-20</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Standing+Dumbbell+Calf+Raise+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Standing+Dumbbell+Calf+Raise+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Weighted Crunch ôm tạ</h4><p>Cuộn bụng, không kéo cổ.</p></div><span class="tag">Bụng</span></div>
+              <div class="meta">Set x Rep: <b>3 x 10-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Weighted+Crunch+%C3%B4m+t%E1%BA%A1+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Weighted+Crunch+%C3%B4m+t%E1%BA%A1+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div></div></details>
+      <details class="panel" open><summary>Ăn uống trong ngày</summary><div class="stack"><div class="item meal-item">
+              <div class="meal-top"><h4>Sáng</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Phở/bún bò hoặc bánh mì trứng</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trưa</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>3 chén cơm + bò/gà/cá + rau + canh</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Xế / trước tập</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Khoai lang hoặc bánh mì + chuối</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Tối</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>2-3 chén cơm + cá/thịt nạc + đậu hũ</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trước ngủ</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Nghỉ ngơi, giãn cơ nhẹ</p>
+            </div></div></details>
+    </section>
+    
+    <section class="day" id="day2">
+      <div class="day-header">
+        <div><span class="day-pill">Thứ 4</span><h2>Nghỉ - Hồi phục chủ động</h2><p class="day-sub">Phục hồi · 2 hộp sữa hạt cao đạm</p></div>
+        <a class="back-top" href="#top">↑</a>
+      </div>
+      <div class="coach-note">Ngày này giúp cơ phát triển. Không biến ngày nghỉ thành ngày tập nặng.</div>
+      <details class="panel" open><summary>Lịch tập tối ưu</summary><div class="stack"><div class="item">
+              <div class="item-head"><div><h4>Đi bộ nhẹ</h4><p>Đi nhẹ, không chạy, không cardio nặng.</p></div><span class="tag">Hồi phục</span></div>
+              <div class="meta">Set x Rep: <b>10-20 phút</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=%C4%90i+b%E1%BB%99+nh%E1%BA%B9+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=%C4%90i+b%E1%BB%99+nh%E1%BA%B9+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Giãn cơ hông, đùi sau, vai</h4><p>Giữ mỗi tư thế 20-30 giây, thở đều.</p></div><span class="tag">Linh hoạt</span></div>
+              <div class="meta">Set x Rep: <b>8-10 phút</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Gi%C3%A3n+c%C6%A1+h%C3%B4ng%2C+%C4%91%C3%B9i+sau%2C+vai+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Gi%C3%A3n+c%C6%A1+h%C3%B4ng%2C+%C4%91%C3%B9i+sau%2C+vai+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Plank nếu muốn vận động nhẹ</h4><p>Chỉ tập nhẹ, không cần quá sức.</p></div><span class="tag">Core</span></div>
+              <div class="meta">Set x Rep: <b>2-3 x 30-45 giây</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Plank+n%E1%BA%BFu+mu%E1%BB%91n+v%E1%BA%ADn+%C4%91%E1%BB%99ng+nh%E1%BA%B9+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Plank+n%E1%BA%BFu+mu%E1%BB%91n+v%E1%BA%ADn+%C4%91%E1%BB%99ng+nh%E1%BA%B9+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Nghỉ hoàn toàn nếu cơ thể mỏi</h4><p>Ưu tiên ngủ đủ và ăn đủ.</p></div><span class="tag">Hồi phục</span></div>
+              <div class="meta">Set x Rep: <b>Cả ngày</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Ngh%E1%BB%89+ho%C3%A0n+to%C3%A0n+n%E1%BA%BFu+c%C6%A1+th%E1%BB%83+m%E1%BB%8Fi+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Ngh%E1%BB%89+ho%C3%A0n+to%C3%A0n+n%E1%BA%BFu+c%C6%A1+th%E1%BB%83+m%E1%BB%8Fi+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div></div></details>
+      <details class="panel" open><summary>Ăn uống trong ngày</summary><div class="stack"><div class="item meal-item">
+              <div class="meal-top"><h4>Sáng</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Yến mạch nấu loãng hoặc bánh mì 2 trứng</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trưa</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>2-3 chén cơm + thịt/cá/gà + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Xế</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>Bánh mì nhỏ hoặc chuối + đậu phộng</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Tối</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>Cơm + trứng/đậu hũ/cá + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trước ngủ</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Không ăn thêm nếu đã no</p>
+            </div></div></details>
+    </section>
+    
+    <section class="day" id="day3">
+      <div class="day-header">
+        <div><span class="day-pill">Thứ 5</span><h2>Upper B - Tăng cơ thân trên</h2><p class="day-sub">Ngực trên, lưng rộng, vai sau, tay · 3 hộp sữa hạt cao đạm</p></div>
+        <a class="back-top" href="#top">↑</a>
+      </div>
+      <div class="coach-note">Buổi này bù hạn chế của việc tập tại nhà: tăng thêm pullover, row và vai sau.</div>
+      <details class="panel" open><summary>Lịch tập tối ưu</summary><div class="stack"><div class="item">
+              <div class="item-head"><div><h4>Incline Dumbbell Press trên ghế dốc</h4><p>Hạ tạ chậm, giữ vai ổn định.</p></div><span class="tag">Ngực trên</span></div>
+              <div class="meta">Set x Rep: <b>4 x 8-12</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Incline+Dumbbell+Press+tr%C3%AAn+gh%E1%BA%BF+d%E1%BB%91c+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Incline+Dumbbell+Press+tr%C3%AAn+gh%E1%BA%BF+d%E1%BB%91c+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Pullover trên ghế</h4><p>Bù cho bài kéo xô khi không có máy/kéo xà.</p></div><span class="tag">Lưng/ngực</span></div>
+              <div class="meta">Set x Rep: <b>4 x 10-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Pullover+tr%C3%AAn+gh%E1%BA%BF+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Pullover+tr%C3%AAn+gh%E1%BA%BF+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>One-arm Dumbbell Row khuỷu mở nhẹ</h4><p>Kéo hơi mở khuỷu để ăn lưng trên/vai sau hơn.</p></div><span class="tag">Lưng trên</span></div>
+              <div class="meta">Set x Rep: <b>3 x 10-12 mỗi bên</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=One-arm+Dumbbell+Row+khu%E1%BB%B7u+m%E1%BB%9F+nh%E1%BA%B9+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=One-arm+Dumbbell+Row+khu%E1%BB%B7u+m%E1%BB%9F+nh%E1%BA%B9+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Arnold Press hoặc Seated DB Press nhẹ</h4><p>Không cần nặng bằng Thứ 2.</p></div><span class="tag">Vai</span></div>
+              <div class="meta">Set x Rep: <b>3 x 8-12</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Arnold+Press+ho%E1%BA%B7c+Seated+DB+Press+nh%E1%BA%B9+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Arnold+Press+ho%E1%BA%B7c+Seated+DB+Press+nh%E1%BA%B9+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Rear Delt Dumbbell Fly</h4><p>Giữ tạ nhẹ, không giật người.</p></div><span class="tag">Vai sau</span></div>
+              <div class="meta">Set x Rep: <b>4 x 12-20</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Rear+Delt+Dumbbell+Fly+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Rear+Delt+Dumbbell+Fly+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Close-grip Dumbbell Press</h4><p>Khuỷu tay sát thân.</p></div><span class="tag">Tay sau/ngực</span></div>
+              <div class="meta">Set x Rep: <b>3 x 8-12</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Close-grip+Dumbbell+Press+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Close-grip+Dumbbell+Press+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Hammer Curl</h4><p>Tập chậm, không đung đưa người.</p></div><span class="tag">Tay trước</span></div>
+              <div class="meta">Set x Rep: <b>3 x 10-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Hammer+Curl+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Hammer+Curl+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div></div></details>
+      <details class="panel" open><summary>Ăn uống trong ngày</summary><div class="stack"><div class="item meal-item">
+              <div class="meal-top"><h4>Sáng</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Cơm + 2 trứng + thịt hoặc bánh mì ốp la</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trưa</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>2-3 chén cơm + 150-200g gà/bò/cá + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Xế / trước tập</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Bánh mì trứng hoặc khoai lang</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Tối</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>Cơm + cá/đậu hũ/thịt + rau + canh</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trước ngủ</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Ngủ sớm</p>
+            </div></div></details>
+    </section>
+    
+    <section class="day" id="day4">
+      <div class="day-header">
+        <div><span class="day-pill">Thứ 6</span><h2>Lower B - Chân/mông đơn chân</h2><p class="day-sub">Chân, mông, core · 3 hộp sữa hạt cao đạm</p></div>
+        <a class="back-top" href="#top">↑</a>
+      </div>
+      <div class="coach-note">Dùng nhiều bài đơn chân để tăng độ khó dù chỉ có tạ đơn.</div>
+      <details class="panel" open><summary>Lịch tập tối ưu</summary><div class="stack"><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Front Squat</h4><p>Giữ thân người thẳng, tăng tạ nếu đạt đủ 10 reps.</p></div><span class="tag">Đùi trước</span></div>
+              <div class="meta">Set x Rep: <b>4 x 6-10</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Front+Squat+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Front+Squat+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Step-up lên ghế chắc chắn</h4><p>Đạp mạnh qua chân trên ghế, kiểm soát khi hạ xuống.</p></div><span class="tag">Chân/mông</span></div>
+              <div class="meta">Set x Rep: <b>3 x 8-10 mỗi bên</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Step-up+l%C3%AAn+gh%E1%BA%BF+ch%E1%BA%AFc+ch%E1%BA%AFn+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Step-up+l%C3%AAn+gh%E1%BA%BF+ch%E1%BA%AFc+ch%E1%BA%AFn+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Single-leg Dumbbell Romanian Deadlift</h4><p>Giữ hông cân bằng, lưng thẳng.</p></div><span class="tag">Đùi sau/mông</span></div>
+              <div class="meta">Set x Rep: <b>3 x 8-10 mỗi bên</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Single-leg+Dumbbell+Romanian+Deadlift+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Single-leg+Dumbbell+Romanian+Deadlift+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Hip Thrust nặng</h4><p>Bài mông chính của buổi. Tăng tạ dần.</p></div><span class="tag">Mông</span></div>
+              <div class="meta">Set x Rep: <b>4 x 8-12</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Hip+Thrust+n%E1%BA%B7ng+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Hip+Thrust+n%E1%BA%B7ng+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Seated Calf Raise đặt tạ lên đùi</h4><p>Nhón cao hết biên độ, dừng 1 giây ở đỉnh.</p></div><span class="tag">Bắp chân</span></div>
+              <div class="meta">Set x Rep: <b>4 x 15-20</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Seated+Calf+Raise+%C4%91%E1%BA%B7t+t%E1%BA%A1+l%C3%AAn+%C4%91%C3%B9i+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Seated+Calf+Raise+%C4%91%E1%BA%B7t+t%E1%BA%A1+l%C3%AAn+%C4%91%C3%B9i+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Leg Raise trên ghế</h4><p>Siết bụng dưới, tránh đung đưa.</p></div><span class="tag">Bụng</span></div>
+              <div class="meta">Set x Rep: <b>3 x 10-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Leg+Raise+tr%C3%AAn+gh%E1%BA%BF+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Leg+Raise+tr%C3%AAn+gh%E1%BA%BF+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div></div></details>
+      <details class="panel" open><summary>Ăn uống trong ngày</summary><div class="stack"><div class="item meal-item">
+              <div class="meal-top"><h4>Sáng</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Bún thịt nướng/bún bò hoặc cơm + trứng</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trưa</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>3 chén cơm + thịt/cá/gà + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Xế / trước tập</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Khoai lang + trứng hoặc bánh mì trứng</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Tối</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>2-3 chén cơm + bò/gà/cá + rau + canh</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trước ngủ</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Không ăn quá nặng bụng</p>
+            </div></div></details>
+    </section>
+    
+    <section class="day" id="day5">
+      <div class="day-header">
+        <div><span class="day-pill">Thứ 7</span><h2>Optional Pump - Vai, tay, core</h2><p class="day-sub">Buổi phụ tùy hồi phục · 2 hộp sữa hạt cao đạm</p></div>
+        <a class="back-top" href="#top">↑</a>
+      </div>
+      <div class="coach-note">Không bắt buộc. Nếu mệt, đau nhức hoặc ăn thiếu, hãy nghỉ thay vì tập.</div>
+      <details class="panel" open><summary>Lịch tập tối ưu</summary><div class="stack"><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Lateral Raise</h4><p>Tạ nhẹ, tập chậm, cảm nhận vai.</p></div><span class="tag">Vai giữa</span></div>
+              <div class="meta">Set x Rep: <b>4 x 15-20</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Lateral+Raise+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Lateral+Raise+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Rear Delt Fly</h4><p>Giữ form sạch, không giật.</p></div><span class="tag">Vai sau</span></div>
+              <div class="meta">Set x Rep: <b>3 x 15-20</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Rear+Delt+Fly+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Rear+Delt+Fly+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Dumbbell Curl</h4><p>Tập kiểm soát.</p></div><span class="tag">Tay trước</span></div>
+              <div class="meta">Set x Rep: <b>3 x 10-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Dumbbell+Curl+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Dumbbell+Curl+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Hammer Curl</h4><p>Không cần quá nặng.</p></div><span class="tag">Tay trước/cẳng tay</span></div>
+              <div class="meta">Set x Rep: <b>2 x 12-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Hammer+Curl+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Hammer+Curl+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Overhead Triceps Extension</h4><p>Duỗi hết biên độ.</p></div><span class="tag">Tay sau</span></div>
+              <div class="meta">Set x Rep: <b>3 x 10-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Overhead+Triceps+Extension+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Overhead+Triceps+Extension+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Close-grip Push-up hoặc Floor Press nhẹ</h4><p>Chỉ pump nhẹ.</p></div><span class="tag">Ngực/tay sau</span></div>
+              <div class="meta">Set x Rep: <b>2-3 x 12-15</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Close-grip+Push-up+ho%E1%BA%B7c+Floor+Press+nh%E1%BA%B9+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Close-grip+Push-up+ho%E1%BA%B7c+Floor+Press+nh%E1%BA%B9+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Plank</h4><p>Giữ thân người thẳng.</p></div><span class="tag">Core</span></div>
+              <div class="meta">Set x Rep: <b>3 x 30-60 giây</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Plank+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Plank+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div></div></details>
+      <details class="panel" open><summary>Ăn uống trong ngày</summary><div class="stack"><div class="item meal-item">
+              <div class="meal-top"><h4>Sáng</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Bánh mì trứng hoặc cơm + trứng</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trưa</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>2-3 chén cơm + 180-200g thịt/cá/gà + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Xế</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>Chuối hoặc bánh mì nhỏ</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Tối</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>Cơm + trứng/đậu hũ/cá + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trước ngủ</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Nghỉ ngơi</p>
+            </div></div></details>
+    </section>
+    
+    <section class="day" id="day6">
+      <div class="day-header">
+        <div><span class="day-pill">Chủ nhật</span><h2>Nghỉ hoàn toàn</h2><p class="day-sub">Phục hồi và chuẩn bị tuần mới · 1 hộp sữa hạt cao đạm</p></div>
+        <a class="back-top" href="#top">↑</a>
+      </div>
+      <div class="coach-note">Ngày nghỉ thật sự để cơ, khớp và hệ thần kinh hồi phục.</div>
+      <details class="panel" open><summary>Lịch tập tối ưu</summary><div class="stack"><div class="item">
+              <div class="item-head"><div><h4>Nghỉ hoàn toàn</h4><p>Không cần tập.</p></div><span class="tag">Hồi phục</span></div>
+              <div class="meta">Set x Rep: <b>Cả ngày</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Ngh%E1%BB%89+ho%C3%A0n+to%C3%A0n+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Ngh%E1%BB%89+ho%C3%A0n+to%C3%A0n+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Giãn cơ nhẹ nếu mỏi</h4><p>Giãn nhẹ vùng đau mỏi.</p></div><span class="tag">Hồi phục</span></div>
+              <div class="meta">Set x Rep: <b>5-10 phút</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Gi%C3%A3n+c%C6%A1+nh%E1%BA%B9+n%E1%BA%BFu+m%E1%BB%8Fi+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Gi%C3%A3n+c%C6%A1+nh%E1%BA%B9+n%E1%BA%BFu+m%E1%BB%8Fi+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Chuẩn bị thực phẩm tuần sau</h4><p>Chuẩn bị cơm, trứng, thịt, sữa.</p></div><span class="tag">Meal prep</span></div>
+              <div class="meta">Set x Rep: <b>30-45 phút</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Chu%E1%BA%A9n+b%E1%BB%8B+th%E1%BB%B1c+ph%E1%BA%A9m+tu%E1%BA%A7n+sau+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Chu%E1%BA%A9n+b%E1%BB%8B+th%E1%BB%B1c+ph%E1%BA%A9m+tu%E1%BA%A7n+sau+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div><div class="item">
+              <div class="item-head"><div><h4>Review mức tạ tuần này</h4><p>Ghi lại bài nào tăng rep/tăng tạ.</p></div><span class="tag">Theo dõi</span></div>
+              <div class="meta">Set x Rep: <b>10 phút</b></div>
+              <div class="actions"><a class="btn video" href="https://www.youtube.com/results?search_query=Review+m%E1%BB%A9c+t%E1%BA%A1+tu%E1%BA%A7n+n%C3%A0y+tutorial" target="_blank">▶ Video</a><a class="btn image" href="https://www.google.com/search?tbm=isch&q=Review+m%E1%BB%A9c+t%E1%BA%A1+tu%E1%BA%A7n+n%C3%A0y+form" target="_blank">🖼 Hình ảnh</a></div>
+            </div></div></details>
+      <details class="panel" open><summary>Ăn uống trong ngày</summary><div class="stack"><div class="item meal-item">
+              <div class="meal-top"><h4>Sáng</h4><span class="milk-tag">1 hộp sữa hạt cao đạm</span></div>
+              <p>Yến mạch hoặc bánh mì + 2 trứng</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trưa</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>2-3 chén cơm + thịt/cá/gà + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Xế</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>Bánh mì nhỏ hoặc chuối + đậu phộng</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Tối</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>Cơm + cá/trứng/đậu hũ + rau</p>
+            </div><div class="item meal-item">
+              <div class="meal-top"><h4>Trước ngủ</h4><span class="milk-tag">Không cần sữa</span></div>
+              <p>Ngủ sớm để phục hồi</p>
+            </div></div></details>
+    </section>
+    
+  <section class="footer-note">
+    <b>Quy tắc tăng tải:</b> Khi hoàn thành mức rep cao nhất ở tất cả set với form tốt, buổi sau tăng tạ hoặc tăng 1–2 reps. Không cần tập tới kiệt sức mọi set; giữ dư khoảng 1–2 reps ở bài chính.
+  </section>
+</main>
+</body>
+</html>
